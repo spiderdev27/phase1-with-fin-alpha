@@ -1,0 +1,60 @@
+// AI Model Settings
+const AI_SETTINGS = {
+  // API Configuration
+  api: {
+    baseUrl: 'http://localhost:5000',
+    endpoints: {
+      fundamentals: '/api/fundamentals',
+      finspect: '/api/finspect',
+      personalFinance: '/api/personal-finance',
+      auth: '/api/auth',
+      subscription: '/api/subscription',
+      stocks: '/api/stocks',
+      news: '/api/news'
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  },
+
+  // Authentication Settings
+  auth: {
+    tokenKey: 'jwt_token',
+    tokenPrefix: 'Bearer',
+    expirationTime: '24h'
+  },
+
+  // AI Model Configuration
+  model: {
+    provider: 'gemini',
+    apiKeyEnvVar: 'GEMINI_API_KEY',
+    defaultParams: {
+      temperature: 0.7,
+      maxTokens: 1000
+    }
+  },
+
+  // Feature Access Levels
+  subscriptionLevels: {
+    free: ['base_plan'],
+    bronze: ['base_plan', 'stock_analysis'],
+    silver: ['base_plan', 'stock_analysis', 'personal_finance'],
+    gold: ['base_plan', 'stock_analysis', 'sector_analysis', 'personal_finance', 'api_integration_equity'],
+    diamond: ['base_plan', 'stock_analysis', 'sector_analysis', 'personal_finance', 'api_integration_equity', 'api_integration_fo', 'api_integration_crypto']
+  },
+
+  // Error Messages
+  errorMessages: {
+    auth: {
+      invalidCredentials: 'Invalid credentials',
+      tokenExpired: 'Session expired. Please login again',
+      unauthorized: 'Unauthorized access'
+    },
+    subscription: {
+      insufficientAccess: 'This feature requires a higher subscription level',
+      expired: 'Your subscription has expired'
+    }
+  }
+};
+
+module.exports = AI_SETTINGS; 
